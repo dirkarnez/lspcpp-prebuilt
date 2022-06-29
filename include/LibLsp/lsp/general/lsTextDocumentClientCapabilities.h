@@ -91,7 +91,7 @@ enum class lsTextDocumentSyncKind {
   Incremental = 2
 };
 
-#if _WIN32
+#if defined(_WIN32) && defined(_MSC_VER)
 MAKE_REFLECT_TYPE_PROXY(lsTextDocumentSyncKind)
 #else
 //#pragma clang diagnostic push

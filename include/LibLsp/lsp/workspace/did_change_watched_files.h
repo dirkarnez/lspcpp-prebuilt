@@ -8,7 +8,7 @@ enum class lsFileChangeType {
   Deleted = 3,
 };
 
-#ifdef  _WIN32
+#if defined(_WIN32) && defined(_MSC_VER)
 MAKE_REFLECT_TYPE_PROXY(lsFileChangeType);
 #else
 //#pragma clang diagnostic push

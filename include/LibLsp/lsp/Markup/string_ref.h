@@ -6,9 +6,9 @@
 #include <stdarg.h>
 #include<functional>
 
-#ifndef _WIN32
+// #ifndef _WIN32
 #include <cstring>
-#endif
+// #endif
 namespace std
 {
 
@@ -891,7 +891,7 @@ namespace std
             va_list argList;
             va_start( argList, format_string );
 
-#ifdef _WIN32
+#if defined(_WIN32) && defined(_MSC_VER)
             int len = _vscprintf( format_string, argList );
             char* pbuf = new char[len + 1];
             if (pbuf != 0)
@@ -1011,7 +1011,7 @@ namespace std
 		*******************************************************************************/
 		int compare_nocase(const string& str) const
 		{
-#ifdef _WIN32
+#if defined(_WIN32) && defined(_MSC_VER)
 			return _stricmp(this->c_str(), str.c_str());
 #else
 		    return strcasecmp(this->c_str(), str.c_str());
