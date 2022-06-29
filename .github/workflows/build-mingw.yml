@@ -50,7 +50,7 @@ jobs:
         run: cd /d "${{github.workspace}}\build" && mkdir "export\network-uri" && xcopy /E /H /Y /C "${{ env.libraryName }}\*" "export\network-uri"
         
       - shell: cmd
-        run: cd /d "${{github.workspace}}\build" && mkdir "export\liblspcpp\lib" && xcopy /E /H /Y /C "liblspcpp.a" "export\liblspcpp\lib"
+        run: cd /d "${{github.workspace}}\build" && mkdir "export\liblspcpp\lib" && xcopy /H /Y /C "liblspcpp.a" "export\liblspcpp\lib"
         
       - shell: cmd
         run: cd /d "${{github.workspace}}\build" && mkdir "export\liblspcpp\include" && xcopy /E /H /Y /C "..\include\*" "export\liblspcpp\include"
